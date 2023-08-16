@@ -1,12 +1,12 @@
 package com.techbypranay.chatapp.service;
 
-import com.techbypranay.chatapp.dto.UserDTO;
-import com.techbypranay.chatapp.entity.User;
+import com.techbypranay.chatapp.dto.UsersDTO;
+import com.techbypranay.chatapp.entity.Users;
 
 import java.util.List;
 
 public interface UserService {
-    public List<UserDTO> showAll();
-    public String signUp( User details);
-    public String logIn( User details);
+    public List<UsersDTO> showAll();
+    public String signUp( Users details);
+    public String logIn( Users details);
 }

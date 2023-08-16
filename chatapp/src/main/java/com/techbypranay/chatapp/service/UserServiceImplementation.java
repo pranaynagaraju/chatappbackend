@@ -1,8 +1,8 @@
 package com.techbypranay.chatapp.service;
 
 
-import com.techbypranay.chatapp.dto.UserDTO;
-import com.techbypranay.chatapp.entity.User;
+import com.techbypranay.chatapp.dto.UsersDTO;
+import com.techbypranay.chatapp.entity.Users;
 
 import com.techbypranay.chatapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     UserRepository userRepository;
 
-    public List<UserDTO> showAll() {
-        List<User> userList = userRepository.findAll();
-        List<UserDTO> userDTOList = new ArrayList<>();
+    public List<UsersDTO> showAll() {
+        List<Users> userList = userRepository.findAll();
+        List<UsersDTO> userDTOList = new ArrayList<>();
 
-        for (User user : userList) {
-            UserDTO userDTO = new UserDTO();
+        for (Users user : userList) {
+            UsersDTO userDTO = new UsersDTO();
             userDTO.setUserId(user.getUserId());
             userDTO.setUserName(user.getUserName());
             userDTO.setEmail(user.getEmail());
@@ -35,13 +35,13 @@ public class UserServiceImplementation implements UserService {
     }
 
 
-    public String signUp(User details) {
+    public String signUp(Users details) {
         userRepository.save(details);
         return "User Added";
     }
 
-    public String logIn(User details) {
-        User currentUser;
+    public String logIn(Users details) {
+        Users currentUser;
         try {
             currentUser= userRepository.findByUserName(details.getUserName());
         } catch (Exception e) {
