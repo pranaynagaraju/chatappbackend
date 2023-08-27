@@ -6,4 +6,5 @@ import java.util.List;
 public interface MessageService {
     public void send(MessagesDTO messagesDTO);
     public List<MessagesDTO> recieve();
+
 }

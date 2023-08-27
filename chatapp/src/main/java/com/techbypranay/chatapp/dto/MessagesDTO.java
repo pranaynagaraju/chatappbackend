@@ -7,8 +7,8 @@ import lombok.Data;
 import java.time.LocalDateTime;
 @Data
 public class MessagesDTO {
-    private Chats chat;
-    private Users sender;
+    private Long chatId;
+    private int senderId;
     private String content;
     private LocalDateTime timestamp;
 }

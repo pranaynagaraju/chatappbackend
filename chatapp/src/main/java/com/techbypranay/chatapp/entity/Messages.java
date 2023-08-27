@@ -13,14 +13,15 @@ public class Messages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long message_id;
+    @Column(name = "message_id")
+    private Long messageId;
 
     @ManyToOne
-    @JoinColumn(name = "chat_id", nullable = false)
+    @JoinColumn(name = "chat_id")
     private Chats chat;
 
     @ManyToOne
-    @JoinColumn(name = "sender_id", nullable = false)
+    @JoinColumn(name = "sender_id")
     private Users sender;
 
     @Column(nullable = false)
@@ -29,5 +30,4 @@ public class Messages {
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
-    // Constructors, getters, setters, etc.
 }

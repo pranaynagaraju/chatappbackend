@@ -19,6 +19,8 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     UserRepository userRepository;
 
+
+
     public List<UsersDTO> showAll() {
         List<Users> userList = userRepository.findAll();
         List<UsersDTO> userDTOList = new ArrayList<>();
@@ -40,19 +42,24 @@ public class UserServiceImplementation implements UserService {
         return "User Added";
     }
 
-    public String logIn(Users details) {
+    public UsersDTO logIn(Users details) {
         Users currentUser;
         try {
-            currentUser= userRepository.findByUserName(details.getUserName());
+            currentUser= userRepository.findByEmail(details.getEmail());
         } catch (Exception e) {
-            return "user not found";
+            return null;
         }
 
 
         if (currentUser.getPassword().equals(details.getPassword()) ) {
-            return "Login Successful";
+            UsersDTO userData = new UsersDTO();
+            userData.setUserName(currentUser.getUserName());
+            userData.setEmail(currentUser.getEmail());
+            return userData;
         } else {
-            return "Wrong password";
+            return null;
         }
     }
+
+
 }

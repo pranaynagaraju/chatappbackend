@@ -8,5 +8,5 @@ import java.util.List;
 public interface UserService {
     public List<UsersDTO> showAll();
     public String signUp( Users details);
-    public String logIn( Users details);
+    public UsersDTO logIn( Users details);
 }
